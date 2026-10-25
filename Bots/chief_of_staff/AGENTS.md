@@ -31,3 +31,9 @@ Use spare capacity only for approved work.
 Treat these instructions as coordination policy. Describe automatic
 routing, quota enforcement, or recovery as implemented only when
 verified software provides it.
+
+This instruction file is tracked in the `happy-config` repository at
+`~/Happy`. Follow the global instructions for that repository's
+allowlist and publication rules. When updating coordination policy,
+edit this live file and check the staged diff includes only intended
+changes to approved files.

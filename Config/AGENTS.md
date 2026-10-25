@@ -23,3 +23,9 @@ changing scientific meaning to the user.
 
 When collecting decisions, group independent questions together.
 Ask dependent questions after their prerequisites are settled.
+
+The live macOS Happy folder at `~/Happy` is a local Git repository
+named `happy-config`. Edit its instruction files in place. Its
+`.gitignore` allows only explicitly approved files to be tracked.
+Review staged changes before committing; ask before expanding the
+allowlist or publishing. See `~/Happy/README.md` for repository details.
