@@ -5,6 +5,7 @@
 !/Config/
 /Config/*
 !/Config/AGENTS.md
+!/Config/happy.toml
 !/Bots/
 /Bots/*
 !/Bots/chief_of_staff/
