@@ -1,0 +1,12 @@
+# Track only the explicitly approved configuration documents.
+/*
+!/.gitignore
+!/README.md
+!/Config/
+/Config/*
+!/Config/AGENTS.md
+!/Bots/
+/Bots/*
+!/Bots/chief_of_staff/
+/Bots/chief_of_staff/*
+!/Bots/chief_of_staff/AGENTS.md
