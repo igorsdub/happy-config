@@ -1,4 +1,4 @@
-# Track only the explicitly approved configuration documents.
+# Track only explicitly approved configuration, instructions, and support code.
 /*
 !/.gitignore
 !/README.md
@@ -11,3 +11,37 @@
 !/Bots/chief_of_staff/
 /Bots/chief_of_staff/*
 !/Bots/chief_of_staff/AGENTS.md
+!/Bots/chief_of_staff/DISPATCH.md
+!/Bots/chief_of_staff/SPECIALISTS.md
+!/Bots/chief_of_staff/tools/
+/Bots/chief_of_staff/tools/*
+!/Bots/chief_of_staff/tools/__init__.py
+!/Bots/chief_of_staff/tools/dispatch.py
+!/Bots/chief_of_staff/tests/
+/Bots/chief_of_staff/tests/*
+!/Bots/chief_of_staff/tests/__init__.py
+!/Bots/chief_of_staff/tests/test_dispatch.py
+!/Bots/literature_scout/
+/Bots/literature_scout/*
+!/Bots/literature_scout/AGENTS.md
+!/Bots/literature_scout/INTAKE.md
+!/Bots/research_software_engineer/
+/Bots/research_software_engineer/*
+!/Bots/research_software_engineer/AGENTS.md
+!/Bots/research_software_engineer/INTAKE.md
+!/Bots/reproducibility_engineer/
+/Bots/reproducibility_engineer/*
+!/Bots/reproducibility_engineer/AGENTS.md
+!/Bots/reproducibility_engineer/INTAKE.md
+!/Bots/statistical_reviewer/
+/Bots/statistical_reviewer/*
+!/Bots/statistical_reviewer/AGENTS.md
+!/Bots/statistical_reviewer/INTAKE.md
+!/Bots/data_steward/
+/Bots/data_steward/*
+!/Bots/data_steward/AGENTS.md
+!/Bots/data_steward/INTAKE.md
+!/Bots/scientific_writer/
+/Bots/scientific_writer/*
+!/Bots/scientific_writer/AGENTS.md
+!/Bots/scientific_writer/INTAKE.md
