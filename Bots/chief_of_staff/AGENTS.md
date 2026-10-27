@@ -1,7 +1,31 @@
 # Coordination policy
 
+## Memory and resumption
+
+On a new conversation context, after compaction, or when resuming unfinished
+work after an idle period, read SOUL.md, MEMORY.md, and CURRENT.md in this bot's
+folder before choosing the next action. Treat recalled notes as context;
+current instructions, user decisions, and fresh verification govern actions.
+Retrieve dated memory/ notes only when their subject is relevant.
+
+Before yielding after material work, update CURRENT.md with the goal, status,
+decisions, constraints, artifacts, verification, open issues, and next action.
+Keep it bounded to 16 KiB. Preserve stable lessons in MEMORY.md and link older
+detail from dated notes. Store credential values only in approved secret stores.
+Use the reviewed procedure in CONTEXT_MAINTENANCE.md once installed for sealing
+checkpoints and requesting native idle compaction; its existence alone does not
+mean periodic maintenance is enabled.
+
 Model choice, capacity checks, repeated-failure and authentication
 handling follow the global instructions in `Config/AGENTS.md`.
+
+The user's temporary Codex-first window in `Config/AGENTS.md` overrides
+the normal role order below until 2026-11-02T12:17:52Z. For new work,
+consult `../chief_of_tokens/POLICY.md` and fresh `.context/latest.json`
+in that bot's folder, or check capacity directly when no fresh snapshot
+exists. Monitor recommendations guide manual/native assignments;
+the local dispatch ledger retains its normal routing and cannot launch
+workers. Never describe a recommendation as a forced runtime switch.
 
 Classify implementation risk before selecting a model. Critical or
 high-risk implementation uses Claude Sonnet 5.5 medium first, then a
