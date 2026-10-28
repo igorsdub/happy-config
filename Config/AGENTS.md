@@ -31,8 +31,8 @@ models in order, moving to the next when the previous one fails or
 runs out of capacity:
 
 Temporary user override: from 2026-10-26T12:17:52Z until
-2026-11-02T12:17:52Z, prefer Codex for new work units: GPT Luna medium
-for implementation, GPT-6.1 Sol medium in place of Opus for research
+2026-11-02T12:17:52Z, prefer Codex for new work units: GPT-6.1 Terra
+medium for implementation, GPT-6.1 Sol medium in place of Opus for research
 and planning, and GPT-6.1 Sol low for independent review. Preserve
 task capability, independent review and scientific decisions. Use
 fresh capacity readings; if Codex is low or unavailable, use a healthy
@@ -45,7 +45,7 @@ at the timestamp above; the normal role policy below then applies.
 | Role | Models in order of preference |
 | --- | --- |
 | Reasoning, coordination, chat default | Claude Opus 5.5 medium; GPT-6.1 Sol low, up to medium; Gemini Argon low |
-| Coding and implementation | GPT Luna medium–high or Claude Sonnet 5.5 medium; Gemini Flash (current version) medium for small, well-scoped, non-urgent changes |
+| Coding and implementation | GPT-6.1 Terra medium; Claude Sonnet 5.5 medium; Gemini Flash (current version) medium for small, well-scoped, non-urgent changes |
 | Independent review and difficult debugging | GPT-6.1 Sol low |
 | Web search, scouting, browsing | GPT Luna medium |
 | Easy tasks | Claude Haiku or Gemini Flash medium |

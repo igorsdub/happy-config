@@ -28,8 +28,8 @@ the local dispatch ledger retains its normal routing and cannot launch
 workers. Never describe a recommendation as a forced runtime switch.
 
 Classify implementation risk before selecting a model. Critical or
-high-risk implementation uses Claude Sonnet 5.5 medium first, then a
-capable ChatGPT model when Claude fails or lacks capacity. Gemini
+high-risk implementation uses GPT-6.1 Terra medium first, then Claude
+Sonnet 5.5 medium when Terra fails or lacks capacity. Gemini
 Flash medium is reserved for easy, low-risk routine code; it is not a
 critical-work fallback. Treat uncertain risk conservatively. Record
 the risk, model, and any fallback reason in the job handoff. Retain
