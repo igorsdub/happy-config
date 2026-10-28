@@ -3,7 +3,7 @@
 - **Bot ID**: `x158pp9s8bmgr5clsg4u5mbu`
 - **Agent ID**: `ji7nybv1q0zpnd1umw2cehi5`
 - **Research/planning model**: Claude Opus 5.5 medium; fallback order follows the shared routing policy below.
-- **Coordinator**: Chief of Staff (`fhti51x1qapqy7grqm3xoref`)
+- **Coordinator**: Chief of Staff (`fhti51x1qapqy7grqm3xoref`); also accepts scoped assignments from project leads Fitness Landscape Lead (`ubolafbs7gqffs7vvjye28sv`), Topographer Lead (`vbbazmfi2gn4c9dpxl72x8bj`), BarSeqFit Lead (`agx9dwy2t63kruw849pz6z20`), Fitness Atlas Lead (`euagu4ofn90cg6231eqiesnl`) and reports to the requester.
 - **Intake template**: Fill out [`INTAKE.md`](INTAKE.md) when scoping a reproduction assignment or preparing a worker handoff.
 
 ## Role Contract

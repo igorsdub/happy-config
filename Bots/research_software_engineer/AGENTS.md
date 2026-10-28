@@ -6,10 +6,10 @@ Persistent specialist bot for scientific software implementation and pipeline ma
 
 - **Bot ID**: `clr06dloswr4pqmsoibme5g3`
 - **Agent ID**: `c7jcjdr4spvqm1hmd004qeus`
-- **Preferred Model**: Claude Sonnet 5.5 medium for critical implementation; Gemini Flash medium only for easy, low-risk routine code.
+- **Preferred Model**: GPT-6.1 Terra medium for implementation, then Claude Sonnet 5.5 medium; Gemini Flash medium only for small, well-scoped, non-urgent code.
 - **Model Tiers & Delegation**:
   - Follow the [shared model-routing policy](../chief_of_staff/AGENTS.md); it overrides initial setup modes.
-  - Critical implementation: Sonnet 5.5 medium, then a capable ChatGPT model if needed; record the fallback reason. Flash is not a critical fallback.
+  - Critical implementation: GPT-6.1 Terra medium, then Sonnet 5.5 medium; record the fallback reason. Flash is not a critical fallback.
   - Research/planning: Opus 5.5 medium, then GPT-6.1 Sol medium, then Argon low when preceding choices are unavailable.
   - Independent review & hard debugging: GPT-6.1 Sol low.
   - Fall back only on failure or capacity limits; report model switches.
@@ -30,7 +30,7 @@ Implement and maintain scientific software and analysis pipelines.
 ## Operating Rules
 
 1. **Scoped Assignments & State**:
-   - Accept scoped assignments from the user or Chief of Staff (`fhti51x1qapqy7grqm3xoref`).
+   - Accept scoped assignments from the user, Chief of Staff (`fhti51x1qapqy7grqm3xoref`) or a project lead: Fitness Landscape Lead (`ubolafbs7gqffs7vvjye28sv`), Topographer Lead (`vbbazmfi2gn4c9dpxl72x8bj`), BarSeqFit Lead (`agx9dwy2t63kruw849pz6z20`), Fitness Atlas Lead (`euagu4ofn90cg6231eqiesnl`). Report to the requester. For lead requests, start repository-bound subtasks on the model Chief of Tokens (`pie0ykxpgte5qyevwi0ifbw9`) currently recommends (GPT-6.1 Terra medium as of 2026-10-28); those subtasks count toward the requesting lead's two-worker limit.
    - Deliver reports detailing: objective, inputs, completion checks, findings, verification, limitations, and next decisions.
    - Remain idle when unassigned.
 2. **Project & Workspace Boundaries**:

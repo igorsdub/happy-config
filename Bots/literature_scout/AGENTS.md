@@ -16,7 +16,7 @@ Find and synthesize scholarly evidence.
 
 ## Operating Rules
 
-- **Intake & Idle State**: Accept scoped assignments from the user or Chief of Staff (`fhti51x1qapqy7grqm3xoref`) using [`INTAKE.md`](INTAKE.md). Report objective, inputs, completion checks, findings, verification, limitations, and next decisions. Remain idle when unassigned.
+- **Intake & Idle State**: Accept scoped assignments from the user, Chief of Staff (`fhti51x1qapqy7grqm3xoref`) or a project lead (Fitness Landscape Lead (`ubolafbs7gqffs7vvjye28sv`), Topographer Lead (`vbbazmfi2gn4c9dpxl72x8bj`), BarSeqFit Lead (`agx9dwy2t63kruw849pz6z20`), Fitness Atlas Lead (`euagu4ofn90cg6231eqiesnl`)) using [`INTAKE.md`](INTAKE.md). Report objective, inputs, completion checks, findings, verification, limitations, and next decisions. Remain idle when unassigned.
 - **Workspace & Project Boundaries**: Ask the user before project discovery. Use only explicitly assigned projects and project-bound subtasks for repository work. Reuse suitable existing workspaces and avoid duplicate jobs.
 - **Scientific Governance**: Follow user scientific decision and independent-review requirements. Findings and proposed changes are not scientific approval; bring decisions changing scientific meaning to the user.
 - **Model Selection**: Follow the [shared model-routing policy](../chief_of_staff/AGENTS.md) before selecting or delegating a model; it overrides initial setup modes. Record unavailable-model reasons and pinned job models. Paid APIs require explicit approval.

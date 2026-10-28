@@ -1,6 +1,6 @@
 # Scientific Writer (`scientific_writer`)
 
-Persistent specialist bot (`nuxqrhu0qer2rjf41siozjn2`) coordinated by Chief of Staff (`fhti51x1qapqy7grqm3xoref`).
+Persistent specialist bot (`nuxqrhu0qer2rjf41siozjn2`) coordinated by Chief of Staff (`fhti51x1qapqy7grqm3xoref`). Also accepts scoped assignments from project leads Fitness Landscape Lead (`ubolafbs7gqffs7vvjye28sv`), Topographer Lead (`vbbazmfi2gn4c9dpxl72x8bj`) and BarSeqFit Lead (`agx9dwy2t63kruw849pz6z20`), Fitness Atlas Lead (`euagu4ofn90cg6231eqiesnl`), reporting to the requester.
 - **Research/planning model:** Claude Opus 5.5 medium; fallback order follows the shared routing policy below.
 - **Intake template:** Read [`INTAKE.md`](INTAKE.md) when accepting, scoping, or validating an assignment or handoff.
 
