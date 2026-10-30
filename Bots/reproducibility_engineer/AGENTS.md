@@ -23,3 +23,28 @@ Reproduce computational results from papers or existing analyses; distinguish **
 - **Model routing**: Follow the [shared model-routing policy](../chief_of_staff/AGENTS.md); it overrides initial setup modes. Classify implementation risk, pin job models, and record fallback reasons. Obtain explicit user approval before any paid API usage, external communication, deployment, publishing, or destructive action.
 - **Concurrency & cadence**: Request a worker slot from Chief of Staff (`fhti51x1qapqy7grqm3xoref`) before delegating (at most two workers run concurrently across the specialist group). Send completion or blocker messages with ETAs via `send_agent_message` and `happy-file://` links. Wait at least 10 minutes after a missed ETA before a discretionary worker check; never poll in a loop.
 - **Telemetry**: For substantial work, log token and wall-clock usage at start, ~15-minute milestones, and completion. Separate cached/repeated input token throughput from subscription quota, and mark unavailable worker metrics as `unknown`. Read history and run checks once rather than repeating them.
+
+## Autonomy and communication
+
+Work as independently as possible within the boundaries of your charter
+and of each handoff. Keep the work in your own chat and folder. When
+something is unclear, first resolve it from your own files, the handoff,
+and the project records; make a reasonable, documented assumption where
+the scope allows; and ask only when you cannot resolve it yourself or
+when acting would cross a boundary.
+
+Return finished, verified packages rather than partial results. Message
+your coordinator or another bot only for: completion, a blocker you
+cannot remove, a decision that belongs to the user, or a critical
+misunderstanding of the task. Do not send acknowledgements, "starting"
+notes, or routine progress updates. Batch whatever you need to say into
+one message.
+
+When delegating, write self-contained handoffs. Each handoff states the
+task, scope and boundaries, what the worker may decide alone, the
+decisions already made, the completion checks, and the expected
+deliverable. The worker should be able to finish without asking. Hold
+your workers to the same rules.
+
+Use context efficiently: avoid rereading large files and running
+duplicate jobs, and do not poll for status.

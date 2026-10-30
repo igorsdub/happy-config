@@ -19,28 +19,39 @@ mean periodic maintenance is enabled.
 Model choice, capacity checks, repeated-failure and authentication
 handling follow the global instructions in `Config/AGENTS.md`.
 
-The user's temporary Codex-first window in `Config/AGENTS.md` overrides
-the normal role order below until 2026-11-02T12:17:52Z. For new work,
-consult `../chief_of_tokens/POLICY.md` and fresh `.context/latest.json`
-in that bot's folder, or check capacity directly when no fresh snapshot
-exists. Monitor recommendations guide manual/native assignments;
-the local dispatch ledger retains its normal routing and cannot launch
-workers. Never describe a recommendation as a forced runtime switch.
+For new work, consult `../chief_of_tokens/POLICY.md` and fresh
+`.context/latest.json` in that bot's folder, or check capacity
+directly when no fresh snapshot exists. Monitor recommendations guide
+manual/native assignments; the local dispatch ledger retains its
+normal routing and cannot launch workers. Never describe a
+recommendation as a forced runtime switch.
 
-Classify implementation risk before selecting a model. Critical or
-high-risk implementation uses GPT-6.1 Terra medium first, then Claude
-Sonnet 5.5 medium when Terra fails or lacks capacity. Gemini
-Flash medium is reserved for easy, low-risk routine code; it is not a
-critical-work fallback. Treat uncertain risk conservatively. Record
-the risk, model, and any fallback reason in the job handoff. Retain
-independent GPT-6.1 Sol low review for work requiring it. This user
-preference overrides conflicting global or specialist role defaults.
+Persistent bot chats, including every lead, stay on Claude Sonnet 5.5
+medium (Literature Scout and Chief of Tokens: Claude Haiku 5.5 medium,
+Sonnet 5.5 medium fallback). Classify implementation risk before selecting a model.
+Prefer ChatGPT for implementation: GPT-6.1 Terra medium first, then
+Grok 4.6 medium, then Claude Sonnet 5.5 medium, then Antigravity
+Claude Sonnet 5.5 medium. Gemini Flash medium is reserved for easy,
+low-risk routine code; it is not a critical-work fallback. Treat
+uncertain risk conservatively. Record the risk, model, and any
+fallback reason in the job handoff. Independent review is GPT-6.1 Sol
+low first, then Grok 4.7 medium, by a different agent and a different
+model family from the implementer where possible. Gemini and
+Antigravity stay off reviews until file reads on those routes return
+content. Verification uses GPT-6.1 Terra medium or Grok 4.6 medium,
+as a different agent from the implementer. Grok is never above
+medium. Sol is never above medium. This user preference overrides
+conflicting global or specialist role defaults.
 
-Research and planning use Claude Opus 5.5 medium first, then GPT-6.1
-Sol medium when Opus is unavailable, then Gemini Argon low when both
-are unavailable. Record fallback reasons and use connected
-subscriptions. Independent review remains GPT-6.1 Sol low. Retain
-the user's scientific decision and independent-review requirements.
+Research and planning use a short planner worker, not the persistent
+session model: Claude Opus 5.5 medium first, then GPT-6.1 Sol medium,
+then Grok 4.7 medium, then Antigravity Claude Opus 5.5 medium. The
+planner writes its plan to a file and stops. Record fallback reasons
+and use connected subscriptions. Independent review remains GPT-6.1
+Sol low, then Grok 4.7 medium. Retain the user's scientific decision
+and independent-review requirements. Heavier use of the Grok
+subscription is allowed until 2026-11-30; it will then be downgraded.
+Grok stays never above medium.
 
 Use separate tasks for distinct user workstreams and project-bound
 subtasks for delegated repository work. Handoffs include decisions,
@@ -62,7 +73,15 @@ Use separate workspaces for workers making concurrent code changes.
 Assign independent work with clear scope and completion checks.
 
 Delegate with an expected completion time and request a completion
-message or immediate blocker report. Continue independent work, or
+message or immediate blocker report. Write very specific, self-contained
+handoffs: task, scope and boundaries, what the recipient may decide alone,
+decisions already made, completion checks, and the expected deliverable,
+so leads and workers can finish independently. They resolve ambiguity
+themselves where scope allows, return finished verified packages rather
+than partial results, and message only on completion, an unremovable
+blocker, a user decision, or a critical misunderstanding; no
+acknowledgements or routine progress. Batch messages to each agent and
+relay to the user only what needs them or changes priorities. Continue independent work, or
 yield while the worker runs. Rely on delivered messages for progress.
 Check status only for a dependency, user status request, reported
 failure, or missed ETA. After a missed ETA, send one concise follow-up;
@@ -98,3 +117,28 @@ This instruction file is tracked in the `happy-config` repository at
 allowlist and publication rules. When updating coordination policy,
 edit this live file and check the staged diff includes only intended
 changes to approved files.
+
+## Autonomy and communication
+
+Work as independently as possible within the boundaries of your charter
+and of each handoff. Keep the work in your own chat and folder. When
+something is unclear, first resolve it from your own files, the handoff,
+and the project records; make a reasonable, documented assumption where
+the scope allows; and ask only when you cannot resolve it yourself or
+when acting would cross a boundary.
+
+Return finished, verified packages rather than partial results. Message
+your coordinator or another bot only for: completion, a blocker you
+cannot remove, a decision that belongs to the user, or a critical
+misunderstanding of the task. Do not send acknowledgements, "starting"
+notes, or routine progress updates. Batch whatever you need to say into
+one message.
+
+When delegating, write self-contained handoffs. Each handoff states the
+task, scope and boundaries, what the worker may decide alone, the
+decisions already made, the completion checks, and the expected
+deliverable. The worker should be able to finish without asking. Hold
+your workers to the same rules.
+
+Use context efficiently: avoid rereading large files and running
+duplicate jobs, and do not poll for status.

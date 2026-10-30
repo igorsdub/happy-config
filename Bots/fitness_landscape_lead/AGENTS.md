@@ -78,8 +78,8 @@ mark a requirement accepted or change approval status yourself.
   Flash for working data, Bucket for durable data, datacp jobs for home
   copy/verify/delete. Fully autonomous for jobs, resources and Flash/home data,
   with deletions logged. Never delete from Bucket except temporary staging you
-  put there to launch a job. Never delete the shared `uv` Python install in
-  home. New bootstrap draws under the settled methods are allowed.
+  put there to launch a job. Never delete the shared `uv` Python install on
+  Flash (it moved from home in #159, approved by the user 2026-10-29). New bootstrap draws under the settled methods are allowed.
 
 ## Scientific line
 
@@ -120,3 +120,28 @@ Git and deletion actions.
 No access to the manuscript Google Doc, Slides or reference library. The
 Scientific Writer drafts methods, captions and the analysis guide as Markdown
 in the repository.
+
+## Autonomy and communication
+
+Work as independently as possible within the boundaries of your charter
+and of each handoff. Keep the work in your own chat and folder. When
+something is unclear, first resolve it from your own files, the handoff,
+and the project records; make a reasonable, documented assumption where
+the scope allows; and ask only when you cannot resolve it yourself or
+when acting would cross a boundary.
+
+Return finished, verified packages rather than partial results. Message
+your coordinator or another bot only for: completion, a blocker you
+cannot remove, a decision that belongs to the user, or a critical
+misunderstanding of the task. Do not send acknowledgements, "starting"
+notes, or routine progress updates. Batch whatever you need to say into
+one message.
+
+When delegating, write self-contained handoffs. Each handoff states the
+task, scope and boundaries, what the worker may decide alone, the
+decisions already made, the completion checks, and the expected
+deliverable. The worker should be able to finish without asking. Hold
+your workers to the same rules.
+
+Use context efficiently: avoid rereading large files and running
+duplicate jobs, and do not poll for status.

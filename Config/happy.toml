@@ -4,7 +4,7 @@
 
 [defaults]
 provider = "claude"
-model = "anthropic/opus-5-5"
+model = "anthropic/sonnet-5-5"
 effort = "medium"
 # permission_mode = "auto"
 # service_tier = "default"
