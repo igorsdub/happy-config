@@ -40,13 +40,16 @@ five-hour session is exhausted until 2026-10-30T03:09:00Z (12:09 JST);
 the Claude week is not exhausted. Codex's five-hour session is
 exhausted until 2026-10-30T04:56:00Z (13:56 JST). Until the Claude
 session resets, do not start Claude sessions or workers, and do not
-use Grok 4.7: it is heavier than this gap needs. Continue on Grok 4.6
-medium (provider `grok`, model `xai/grok-4.6`). Grok weekly was about
-97% at this reading, so keep those turns short. After 03:09Z, sessions
-return to Sonnet 5.5 medium (Haiku for Literature Scout and Chief of
-Tokens). Until 04:56Z, implementation and verification still skip
-Codex and use Grok 4.6 medium. This paragraph expires at 04:56Z. Grok
-stays never above medium.
+use Grok 4.7 or Grok 4.6: they are heavier than this gap needs.
+Sessions continue on Grok 4.5 medium (provider `grok`, model
+`xai/grok-4.5`). Implementation and verification use Grok Build
+medium (`xai/grok-build`). Composer 2.5 stays for easy tasks only
+(effort off). Grok weekly was about 97% at this reading, so keep
+those turns short. After 03:09Z, sessions return to Sonnet 5.5
+medium (Haiku for Literature Scout and Chief of Tokens). Until
+04:56Z, implementation and verification still skip Codex and use
+Grok Build medium. This paragraph expires at 04:56Z. Grok stays
+never above medium.
 
 | Role | Models in order of preference |
 | --- | --- |
