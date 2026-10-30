@@ -26,36 +26,47 @@ manual/native assignments; the local dispatch ledger retains its
 normal routing and cannot launch workers. Never describe a
 recommendation as a forced runtime switch.
 
-Persistent bot chats, including every lead, stay on Claude Sonnet 5.5
-medium (Literature Scout and Chief of Tokens: Claude Haiku 5.5 medium,
-Sonnet 5.5 medium fallback). Classify implementation risk before selecting a model.
-Prefer ChatGPT for implementation: GPT-6.1 Terra medium first, then
-Grok 4.6 medium, then Claude Sonnet 5.5 medium, then Antigravity
-Claude Sonnet 5.5 medium. Gemini Flash medium is reserved for easy,
+Persistent bot chats, including every lead, Literature Scout, and
+Chief of Tokens, stay on Claude Sonnet 5.5 **low**. Default effort is
+**low**; raise one step only after that stage fails. Classify
+implementation risk before selecting a model. Prefer ChatGPT for
+implementation: GPT-6.1 Terra low first, then Grok Build medium
+(medium-only overflow), then Claude Sonnet 5.5 low, then Antigravity
+Claude Sonnet 5.5 low. Gemini Flash low is reserved for easy,
 low-risk routine code; it is not a critical-work fallback. Treat
 uncertain risk conservatively. Record the risk, model, and any
 fallback reason in the job handoff. Independent review is GPT-6.1 Sol
-low first, then Grok 4.7 medium, by a different agent and a different
-model family from the implementer where possible. Gemini and
-Antigravity stay off reviews until file reads on those routes return
-content. Verification uses GPT-6.1 Terra medium or Grok 4.6 medium,
-as a different agent from the implementer. Grok is never above
-medium. Sol is never above medium. This user preference overrides
-conflicting global or specialist role defaults.
+low first, then Grok 4.7 low (provisional if same family as the
+implementer), by a different agent and a different model family from
+the implementer where possible. Gemini and Antigravity stay off
+reviews until file reads on those routes return content. Verification
+uses GPT-6.1 Terra low or Grok Build medium, as a different agent from
+the implementer. Grok is never above medium. Sol is never above
+medium. This user preference overrides conflicting global or
+specialist role defaults.
 
 Research and planning use a short planner worker, not the persistent
-session model: Claude Opus 5.5 medium first, then GPT-6.1 Sol medium,
-then Grok 4.7 medium, then Antigravity Claude Opus 5.5 medium. The
-planner writes its plan to a file and stops. Record fallback reasons
-and use connected subscriptions. Independent review remains GPT-6.1
-Sol low, then Grok 4.7 medium. Retain the user's scientific decision
-and independent-review requirements. Heavier use of the Grok
-subscription is allowed until 2026-11-30; it will then be downgraded.
-Grok stays never above medium.
+session model: Claude Opus 5.5 low first, then GPT-6.1 Sol low, then
+Grok 4.7 low, then Antigravity Claude Opus 5.5 low. The planner writes
+its plan to a file and stops. Record fallback reasons and use
+connected subscriptions. Independent review remains GPT-6.1 Sol low,
+then Grok 4.7 low. Retain the user's scientific decision and
+independent-review requirements. Heavier use of the Grok subscription
+is allowed until 2026-11-30; it will then be downgraded. Grok stays
+never above medium.
+
+Work pattern (user-adopted 2026-10-30): for a workstream, prefer a
+cheap task as dispatcher with a short checkpoint. Reuse
+planner/implementer only inside one hot ticket; archive them on pause,
+finish, or compact. Start a new reviewer and check runner every pass;
+they must not see the implementer's transcript. Do not keep standing
+four-role chats. Message the parent bot only for scope change,
+scientific decision, review conflict, or an unroutable blocker.
 
 Use separate tasks for distinct user workstreams and project-bound
-subtasks for delegated repository work. Handoffs include decisions,
-file references, verification results, and open issues.
+subtasks for delegated repository work. Prefer subtasks over hidden
+collaborators so the five-collaborator cap stays free. Handoffs include
+decisions, file references, verification results, and open issues.
 
 For scientific specialist assignments, read SPECIALISTS.md for the
 bot roster, role boundaries, dispatch contract, and readiness checks.
