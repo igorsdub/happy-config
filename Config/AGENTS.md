@@ -27,45 +27,44 @@ numerical results, or scientific conclusions. Bring decisions
 changing scientific meaning to the user.
 
 When delegating, choose model and effort by role. Persistent bot chats,
-including every lead, run on Claude Sonnet 5.5 medium. The new-session
-default is `anthropic/sonnet-5-5` at medium on provider `claude`. Opus
-is used only as a short planner worker that writes its plan to a file
-and stops. Literature Scout and Chief of Tokens are the session
-exceptions: Claude Haiku 5.5 medium, with Sonnet 5.5 medium as fallback.
-Try each role's models in order, moving to the next when the previous
-one fails or runs out of capacity:
+including every lead, Literature Scout, and Chief of Tokens, run on
+Claude Sonnet 5.5 **low**. The new-session default is
+`anthropic/sonnet-5-5` at **low** on provider `claude`. Opus is used
+only as a short planner worker that writes its plan to a file and
+stops. Default effort is **low** wherever a dial exists; raise one
+step only after that stage fails. Try each role's models in order,
+moving to the next when the previous one fails or runs out of capacity:
 
-Temporary capacity window, updated 2026-10-30T02:32:00Z. User
-override: finish the fitness article on Grok; do not switch bot
-sessions back to Claude until the user says so. Claude's five-hour
-session was exhausted until 2026-10-30T03:09:00Z (12:09 JST); the
-Claude week is not exhausted. Codex's five-hour session is exhausted
-until 2026-10-30T04:56:00Z (13:56 JST). Do not start Claude sessions
-or workers. Do not use Grok 4.6 for sessions. Sessions stay on Grok
-4.5 medium (provider `grok`, model `xai/grok-4.5`). Implementation
-and verification use Grok Build medium (`xai/grok-build`); after
-04:56Z prefer Codex Terra/Sol again when capacity allows, but keep
-sessions on Grok 4.5 until the user says otherwise. Independent
-review while Codex is out: Grok 4.7 medium. Composer 2.5 stays for
-easy tasks only (effort off). Grok weekly was about 97% at the
-02:13Z reading, so keep turns short. This paragraph expires when the
-user restores Claude sessions. Grok stays never above medium.
+Temporary capacity note, updated 2026-10-30T03:40:00Z. Bot sessions are
+back on Claude Sonnet 5.5 low (user). Codex's five-hour session may
+still be exhausted until 2026-10-30T04:56:00Z (13:56 JST): until then,
+implementation may use Grok Build medium (`xai/grok-build`) and
+independent review may use Grok 4.7 **low** marked provisional. After
+04:56Z prefer Codex Terra/Sol again when capacity allows. Composer 2.5
+stays for easy orchestration only (effort off). Grok stays never above
+medium. This Codex-gap sentence expires at 04:56Z.
+
+Work pattern (user-adopted 2026-10-30): a cheap task dispatcher holds a
+short checkpoint; reuse planner/implementer only inside one hot ticket;
+start a new reviewer and check runner every pass; do not keep standing
+four-role chats. Prompt caching does not justify durable role
+transcripts across tickets.
 
 | Role | Models in order of preference |
 | --- | --- |
-| Session, coordination, chat default | Claude Sonnet 5.5 medium (Literature Scout and Chief of Tokens: Claude Haiku 5.5 medium); Grok 4.6 medium; Antigravity Claude Sonnet 5.5 medium; GPT-6.1 Terra medium |
-| Research and planning (short planner worker) | Claude Opus 5.5 medium; GPT-6.1 Sol medium; Grok 4.7 medium; Antigravity Claude Opus 5.5 medium |
-| Coding and implementation | GPT-6.1 Terra medium; Grok 4.6 medium; Claude Sonnet 5.5 medium; Antigravity Claude Sonnet 5.5 medium |
-| Independent review and difficult debugging | GPT-6.1 Sol low; Grok 4.7 medium |
-| Verification | GPT-6.1 Terra medium; Grok 4.6 medium; Claude Sonnet 5.5 medium. Different agent from the implementer. |
-| Web search, scouting, browsing | Claude Haiku 5.5 medium; Claude Sonnet 5.5 medium; GPT Luna medium |
-| Easy tasks | Claude Haiku 5.5 medium; Gemini Flash (current version) medium; Grok Composer 2.5; Antigravity Gemini Flash medium |
+| Session, coordination, chat default | Claude Sonnet 5.5 low; Grok 4.5 low; Antigravity Claude Sonnet 5.5 low; GPT-6.1 Terra low |
+| Research and planning (short planner worker) | Claude Opus 5.5 low; GPT-6.1 Sol low; Grok 4.7 low; Antigravity Claude Opus 5.5 low |
+| Coding and implementation | GPT-6.1 Terra low; Grok Build medium (medium-only overflow); Claude Sonnet 5.5 low; Antigravity Claude Sonnet 5.5 low |
+| Independent review and difficult debugging | GPT-6.1 Sol low; Grok 4.7 low (provisional if same family as implementer) |
+| Verification | GPT-6.1 Terra low; Grok Build medium; Claude Sonnet 5.5 low. Different agent from the implementer. |
+| Web search, scouting, browsing | Claude Sonnet 5.5 low; Claude Haiku 5.5 low; GPT Luna low |
+| Easy tasks / orchestration | Claude Haiku 5.5 low; Grok Composer 2.5 (off); Gemini Flash (current version) low; Antigravity Gemini Flash low |
 
 Never use GPT-6.1 Sol above medium. Use Sol at medium only when it
-substitutes for Opus 5.5 medium. Never use Grok above medium. Prefer
-ChatGPT models for implementation and review when they have capacity.
-Raise effort within a row only when a task fails at the lower level,
-and say so. Gemini Flash is for easy tasks only. Gemini and
+substitutes for Opus 5.5 and low has already failed. Never use Grok
+above medium. Prefer ChatGPT models for implementation and review when
+they have capacity. Raise effort within a row only when a task fails at
+the lower level, and say so. Gemini Flash is for easy tasks only. Gemini and
 Antigravity stay off reviews until file reads on those routes are
 proven to return content (Antigravity reads have previously returned
 only paths). Antigravity's Claude/GPT quota group is the preferred

@@ -5,7 +5,7 @@
 [defaults]
 provider = "claude"
 model = "anthropic/sonnet-5-5"
-effort = "medium"
+effort = "low"
 # permission_mode = "auto"
 # service_tier = "default"
 # instructions = "Additional instructions for every Happy Agent session."
