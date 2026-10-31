@@ -22,6 +22,12 @@
 /Bots/chief_of_staff/tests/*
 !/Bots/chief_of_staff/tests/__init__.py
 !/Bots/chief_of_staff/tests/test_dispatch.py
+!/Bots/chief_of_tokens/
+/Bots/chief_of_tokens/*
+!/Bots/chief_of_tokens/AGENTS.md
+!/Bots/mathematician/
+/Bots/mathematician/*
+!/Bots/mathematician/AGENTS.md
 !/Bots/literature_scout/
 /Bots/literature_scout/*
 !/Bots/literature_scout/AGENTS.md
