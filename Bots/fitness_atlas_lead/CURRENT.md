@@ -1,6 +1,6 @@
 # Current checkpoint
 
-Updated: 2026-10-29. Active PRD/grilling; Q5 defers tree metrics, Q6 accepts all three summary distances.
+Updated: 2026-10-30. RE-PAUSED: user said finish dubanevics2026topological first; only resume Atlas on an explicit, unambiguous user instruction.
 
 ## Goal
 Lead the Fitness Landscape Atlas; first define its PRD with the user.
