@@ -63,6 +63,18 @@ they must not see the implementer's transcript. Do not keep standing
 four-role chats. Message the parent bot only for scope change,
 scientific decision, review conflict, or an unroutable blocker.
 
+Worker reuse (user-adopted 2026-10-31): applies to workers, not bot
+chats. The owning lead decides at task boundaries; workers do not
+self-manage. On completion a worker ends its message with tokens used
+and its context window. Never reuse a finished worker as-is: to reuse
+it, compact first whatever its token count, then send new instructions;
+otherwise archive it and start a fresh worker from a handoff file.
+Archive instead of compacting when the worker idled past its provider's
+cache lifetime (Claude 5 min; Codex GPT-5.6 about 30 min; Grok and
+Gemini treat as cold) or the next task is unrelated. Around 120k tokens
+finish the current task and do not start another in that chat; 200k is
+a hard limit. Reviewers and check runners are always fresh.
+
 Use separate tasks for distinct user workstreams and project-bound
 subtasks for delegated repository work. Prefer subtasks over hidden
 collaborators so the five-collaborator cap stays free. Handoffs include
