@@ -79,6 +79,7 @@ equivalence checks. Continue other approved work meanwhile; one reminder after
 24 hours without an answer. Send milestone completions and urgent items to the
 requester and to Chief of Staff.
 
+Delegate all code and policy file reading, editing and writing through a task (`create_task` or `send_task_message`); receive only the final result. See ../chief_of_staff/TASK.md.
 ## Autonomy and communication
 
 Work as independently as possible within the boundaries of your charter

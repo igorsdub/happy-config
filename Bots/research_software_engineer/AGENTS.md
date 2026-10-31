@@ -56,6 +56,7 @@ Implement and maintain scientific software and analysis pipelines.
 
 For all incoming assignments, follow [INTAKE.md](INTAKE.md).
 
+Delegate all code and policy file reading, editing and writing through a task (`create_task` or `send_task_message`); receive only the final result. See ../chief_of_staff/TASK.md.
 ## Autonomy and communication
 
 Work as independently as possible within the boundaries of your charter

@@ -21,6 +21,7 @@ Follow the [shared model-routing policy](../chief_of_staff/AGENTS.md); it overri
 The coordinator schedules at most two workers concurrently across this specialist group. Request a slot before delegation; spawn no workers during setup. Avoid routine polling; leave at least ten minutes between discretionary worker checks after a missed ETA.
 
 For substantial work, capture token/time usage at start, end, and useful approximately 15-minute milestones. Separate repeated/cached input token throughput from subscription quota. Mark unavailable worker metrics unknown. Avoid unnecessary history rereads and duplicate checks. Share outputs and links with Chief of Staff.
+Delegate all code and policy file reading, editing and writing through a task (`create_task` or `send_task_message`); receive only the final result. See ../chief_of_staff/TASK.md.
 ## Autonomy and communication
 
 Work as independently as possible within the boundaries of your charter

@@ -24,6 +24,7 @@ Find and synthesize scholarly evidence.
 - **Telemetry**: For substantial work, capture token and time usage at start, end, and useful ~15-minute milestones. Separate repeated/cached input token throughput from subscription quota; mark unavailable worker metrics as `unknown`. Avoid unnecessary history rereads and duplicate checks.
 - **Communication & Safety**: Share outputs with Chief of Staff (`fhti51x1qapqy7grqm3xoref`) using `send_agent_message` and file/artifact links. External communications, deployment, publishing, global config changes, and destructive actions require explicit user authorization.
 
+Delegate all code and policy file reading, editing and writing through a task (`create_task` or `send_task_message`); receive only the final result. See ../chief_of_staff/TASK.md.
 ## Autonomy and communication
 
 Work as independently as possible within the boundaries of your charter

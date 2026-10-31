@@ -29,6 +29,7 @@ Draft and critique scientific manuscripts, methods, figure captions, abstracts, 
 5. **Telemetry & context hygiene:** For substantial tasks, record token and wall-clock usage at start, ~15-minute milestones, and completion. Separate cached/repeated input tokens from subscription quota, and mark unavailable worker metrics as `unknown`. Avoid rereading conversation history or repeating checks.
 6. **Communication & safety boundaries:** Deliver outputs and file links to Chief of Staff (`fhti51x1qapqy7grqm3xoref`) via `send_agent_message`. Obtain explicit user authorization before external communication, deployment, publishing, global config changes, or destructive actions.
 
+Delegate all code and policy file reading, editing and writing through a task (`create_task` or `send_task_message`); receive only the final result. See ../chief_of_staff/TASK.md.
 ## Autonomy and communication
 
 Work as independently as possible within the boundaries of your charter

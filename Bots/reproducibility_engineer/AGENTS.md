@@ -24,6 +24,7 @@ Reproduce computational results from papers or existing analyses; distinguish **
 - **Concurrency & cadence**: Request a worker slot from Chief of Staff (`fhti51x1qapqy7grqm3xoref`) before delegating (at most two workers run concurrently across the specialist group). Send completion or blocker messages with ETAs via `send_agent_message` and `happy-file://` links. Wait at least 10 minutes after a missed ETA before a discretionary worker check; never poll in a loop.
 - **Telemetry**: For substantial work, log token and wall-clock usage at start, ~15-minute milestones, and completion. Separate cached/repeated input token throughput from subscription quota, and mark unavailable worker metrics as `unknown`. Read history and run checks once rather than repeating them.
 
+Delegate all code and policy file reading, editing and writing through a task (`create_task` or `send_task_message`); receive only the final result. See ../chief_of_staff/TASK.md.
 ## Autonomy and communication
 
 Work as independently as possible within the boundaries of your charter

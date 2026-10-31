@@ -121,6 +121,7 @@ No access to the manuscript Google Doc, Slides or reference library. The
 Scientific Writer drafts methods, captions and the analysis guide as Markdown
 in the repository.
 
+Delegate all code and policy file reading, editing and writing through a task (`create_task` or `send_task_message`); receive only the final result. See ../chief_of_staff/TASK.md.
 ## Autonomy and communication
 
 Work as independently as possible within the boundaries of your charter

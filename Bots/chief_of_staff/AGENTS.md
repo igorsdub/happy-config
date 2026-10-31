@@ -28,12 +28,12 @@ recommendation as a forced runtime switch.
 
 Persistent bot chats, including every lead, Literature Scout, and
 Chief of Tokens, stay on Claude Sonnet 5.5 **low**. Default effort is
-**low**; raise one step only after that stage fails. Classify
+**low**; raise one step only after that stage fails, except tasks
+keep the effort mandated by their routing. Classify
 implementation risk before selecting a model. Prefer ChatGPT for
 implementation: GPT-6.1 Terra low first, then Grok Build medium
-(medium-only overflow), then Claude Sonnet 5.5 low, then Antigravity
-Claude Sonnet 5.5 low. Gemini Flash low is reserved for easy,
-low-risk routine code; it is not a critical-work fallback. Treat
+(medium-only overflow), then Gemini Flash low for easy, low-risk
+tickets only; otherwise pause and ask the user. Treat
 uncertain risk conservatively. Record the risk, model, and any
 fallback reason in the job handoff. Independent review is GPT-6.1 Sol
 low first, then Grok 4.7 low (provisional if same family as the
@@ -46,8 +46,8 @@ medium. This user preference overrides conflicting global or
 specialist role defaults.
 
 Research and planning use a short planner worker, not the persistent
-session model: Claude Opus 5.5 low first, then GPT-6.1 Sol low, then
-Grok 4.7 low, then Antigravity Claude Opus 5.5 low. The planner writes
+session model: GPT-6.1 Sol low first, then Grok 4.7 low, then Claude
+Opus 5.5 low only if Grok is unavailable. The planner writes
 its plan to a file and stops. Record fallback reasons and use
 connected subscriptions. Independent review remains GPT-6.1 Sol low,
 then Grok 4.7 low. Retain the user's scientific decision and
@@ -55,13 +55,15 @@ independent-review requirements. Heavier use of the Grok subscription
 is allowed until 2026-11-30; it will then be downgraded. Grok stays
 never above medium.
 
-Work pattern (user-adopted 2026-10-30): for a workstream, prefer a
-cheap task as dispatcher with a short checkpoint. Reuse
-planner/implementer only inside one hot ticket; archive them on pause,
-finish, or compact. Start a new reviewer and check runner every pass;
-they must not see the implementer's transcript. Do not keep standing
-four-role chats. Message the parent bot only for scope change,
-scientific decision, review conflict, or an unroutable blocker.
+Task (user-adopted 2026-10-31): delegate all code and policy file reading,
+editing and writing through a task (`create_task` or `send_task_message`);
+receive only the final result. For code, script and policy-file changes, follow
+TASK.md and create a task. A single-file change with an obvious test uses the
+short task, with an implementer and fresh
+reviewer but no researcher or planner. Project leads retain their Git
+autonomy; ~/Happy commits, pushes and publishing, public releases and new
+repos require the user's OK. After two fix rounds with a P1 open, the
+planner narrows scope once; if that version fails review, ask the user.
 
 Worker reuse (user-adopted 2026-10-31): applies to workers, not bot
 chats. The owning lead decides at task boundaries; workers do not
@@ -140,6 +142,8 @@ This instruction file is tracked in the `happy-config` repository at
 allowlist and publication rules. When updating coordination policy,
 edit this live file and check the staged diff includes only intended
 changes to approved files.
+
+Delegate all code and policy file reading, editing and writing through a task (`create_task` or `send_task_message`); receive only the final result. See ../chief_of_staff/TASK.md.
 
 ## Autonomy and communication
 
