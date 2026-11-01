@@ -6,16 +6,30 @@ Create a task (`create_task`) for every code, script or policy-file change. For 
 
 ## Roles and models
 
-All roles use low effort except Grok Build, which uses medium. Before starting each role, check capacity with `codexbar usage` and record the model and any fallback reason in the checkpoint. Report unavailable capacity information as unknown.
+Model tier describes capability; effort is the reasoning dial set per call. They are independent.
 
-| Role | Models in order | Responsibility |
-| --- | --- | --- |
-| Orchestrator | Sonnet 5.5, Grok 4.5 | Task chat; maintain `.context/checkpoint.md`, about 40 lines at most. |
-| Researcher | Sonnet 5.5, Haiku 5.5 | Only when facts are missing; write `.context/research.md`. |
-| Planner | GPT-6.1 Sol low, Grok 4.7 low, Claude Opus 5.5 low (only if Grok is unavailable) | Group independent questions; ask dependent questions after prerequisites. Write `.context/plan.md`, then stop. |
-| Implementer | Terra, Grok Build medium, Gemini Flash | Own workspace or subtask. Flash is low effort and only for easy, low-risk tickets; otherwise pause and ask. |
-| Reviewer | Sol, Grok 4.7 | Fresh agent each pass; a different agent and, where possible, model family. Grok review is provisional if the implementer is also Grok. Give only the plan, diff and checks, never the implementer's transcript. |
-| Check runner | Terra, Grok Build medium | Fresh agent each pass, never the implementer. |
+| Tier | Claude | OpenAI/Codex | Gemini/Antigravity | Grok |
+| --- | --- | --- | --- | --- |
+| high | Opus | Sol | Argon | Grok 4.7 |
+| medium | Sonnet | Terra | Flash | Grok Build (Grok 4.5 sometimes also medium) |
+| low | Haiku | Luna | Flash | Composer |
+
+Gemini has only Argon above Flash, so Flash serves both medium and low.
+
+Before starting each role, check capacity with `codexbar usage` and record the model and any fallback reason in the checkpoint. Report unavailable capacity information as unknown. The task orchestrator must be a low-tier agent; Sonnet is medium tier.
+
+| Role | Tier | Models in order | Responsibility |
+| --- | --- | --- | --- |
+| Orchestrator | low | Haiku 5.5, Luna, Gemini Flash, Composer | Task chat; maintain `.context/checkpoint.md`, about 40 lines at most. |
+| Researcher / scout | low to medium | Sonnet 5.5, Haiku 5.5 | Only when facts are missing; write `.context/research.md`. |
+| Planner | high | GPT-6.1 Sol low, Grok 4.7 low, Claude Opus 5.5 low (only if Grok is unavailable) | Put all questions in one consolidated up-front round (see Question budget in Config/AGENTS.md); resolve the rest by documented assumption. List every edit, worker and message so plan approval authorizes them. Write `.context/plan.md`, then stop. |
+| Implementer | medium | Terra, Grok Build medium, Gemini Flash | Own workspace or subtask. Flash is low effort and only for easy, low-risk tickets; otherwise pause and ask. |
+| Reviewer | high | Sol, Grok 4.7 | Fresh agent each pass; a different agent and, where possible, model family. Grok review is provisional if the implementer is also Grok. Give only the plan, diff and checks, never the implementer's transcript. |
+| Check runner | medium | Terra, Grok Build medium | Fresh agent each pass, never the implementer. |
+
+## Effort
+
+Default effort is low; raise one step only after that stage fails. Grok Build uses medium. Sol is never above medium; Grok is never above medium.
 
 ## Handoff template
 
@@ -65,6 +79,8 @@ Findings:
 P1 blocks acceptance: wrong, unsafe, or violates the spec or policy. P2 should be fixed in this ticket; the orchestrator may waive it and must list it in the final report. P3 is an optional note. Send the implementer only the findings text for fixes. A P1 or unwaived P2 starts a fix round. Allow at most two fix rounds; if P1 remains open, the planner narrows the scope once, then one more implementation and review round follows. If the narrowed version fails review, ask the user. After the cap, if only unwaived P2 findings remain, the orchestrator must waive them with reasons in the final report, narrow the scope, or escalate to the user.
 
 ## Authorization
+
+Approval of the plan authorizes every edit, worker, review and message it lists; do not ask again per step. Follow Question budget in Config/AGENTS.md: spending, scope and scientific decisions are settled in the up-front round, and commit/push of `~/Happy` is asked once at the end. Never re-ask a decision the user explicitly approved.
 
 The user's OK is required for commits, pushes and publishing in `~/Happy`, public releases and new repos. Project repositories retain the lead's existing Git autonomy, including inside a task. Leave `~/Happy` edits staged for review; the orchestrator asks using `request_user_input`, shows the exact `git diff --cached`, and relays the user's answer verbatim to the worker. If review still blocks the action, point the user to that worker's chat.
 
