@@ -249,5 +249,12 @@ effort = "low"
 # env = { NODE_ENV = "development" }
 # mounts = [{ source = "/host/path", target = "/container/path", read_only = true }]
 
-[harnesses.antigravity]
+[harnesses.happy]
+subagent_harnesses = ["antigravity", "claude_code", "codex_cli"]
 
+[harnesses.antigravity]
+subagent_harnesses = ["antigravity", "happy", "claude_code", "codex_cli"]
+
+[harnesses.claude_code]
+
+[harnesses.codex_cli]
