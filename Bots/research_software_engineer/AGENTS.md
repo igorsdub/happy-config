@@ -81,3 +81,18 @@ your workers to the same rules.
 
 Use context efficiently: avoid rereading large files and running
 duplicate jobs, and do not poll for status.
+
+## Save step (every turn)
+
+Chat model: the single bot-model line in `Config/AGENTS.md`. After a model
+switch, send Chief of Staff a one-line confirmation naming the new model.
+
+At the end of every turn, as the last two steps: rewrite `CURRENT.md` in
+this folder (short-term memory; `MEMORY.md` stays long-term memory) with
+these headings, each with real content: Goal, Status, Decisions,
+Constraints, Artifacts, Verification, Open issues, Next action. Max
+16 KiB. Then run
+`python3 ~/Happy/Bots/chief_of_staff/tools/context_maintenance.py --bot research_software_engineer checkpoint-seal`
+and make no further edit to `CURRENT.md`. Chief of Tokens compacts this
+chat (never clears it) only when it is idle and unchanged for a 30-minute
+cycle; see `Bots/chief_of_staff/CONTEXT_MAINTENANCE.md`.

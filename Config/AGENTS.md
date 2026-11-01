@@ -26,17 +26,34 @@ review of changes affecting statistical methods, data exclusions,
 numerical results, or scientific conclusions. Bring decisions
 changing scientific meaning to the user.
 
-When delegating, choose model and effort by role. Persistent bot chats,
-including every lead, Literature Scout, and Chief of Tokens, run on
-Claude Sonnet 5.5 **low**. The new-session default is
+Bot model (single source; user decision 2026-11-01): every persistent bot
+chat runs `antigravity/gemini-3.8-flash` at **low** on provider
+`antigravity`. To switch all bots, edit this line and tell Chief of Staff;
+it moves every registered bot and collects each bot's confirmation. After
+any switch, a bot quotes a named line from a known file before its first
+review-type step, since Gemini file reads are unproven. Bots coordinate;
+real reviews, planning and coding run in task workers chosen from the
+table below. This line overrides the easy-tasks-only and no-Gemini-review
+limits below for bot chats only (user override).
+
+Bot compaction (user decision 2026-11-01): Chief of Tokens runs
+`Bots/chief_of_staff/tools/context_maintenance.py maintain` every 30
+minutes. There is no token threshold. A bot is compacted (never cleared)
+only when it is idle with no running task, subagent, process, question
+or queued message, its newest message is unchanged since the previous
+cycle, and its sealed `CURRENT.md` still matches. Busy bots are skipped;
+a bot skipped three cycles in a row is reported once. Each bot saves and
+seals its own `CURRENT.md` at the end of every turn. See
+`Bots/chief_of_staff/CONTEXT_MAINTENANCE.md`.
+
+When delegating, choose model and effort by role. The new-session default is
 `anthropic/sonnet-5-5` at **low** on provider `claude`. Opus is used
 only as a short planner worker that writes its plan to a file and
 stops. Default effort is **low** wherever a dial exists; raise one
 step only after that stage fails. Try each role's models in order,
 moving to the next when the previous one fails or runs out of capacity:
 
-Temporary capacity note, updated 2026-10-30T03:40:00Z. Bot sessions are
-back on Claude Sonnet 5.5 low (user). Codex's five-hour session may
+Temporary capacity note, updated 2026-10-30T03:40:00Z. Codex's five-hour session may
 still be exhausted until 2026-10-30T04:56:00Z (13:56 JST): until then,
 implementation may use Grok Build medium (`xai/grok-build`) and
 independent review may use Grok 4.7 **low** marked provisional. After

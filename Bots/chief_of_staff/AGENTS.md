@@ -27,31 +27,14 @@ normal routing and cannot launch workers. Never describe a
 recommendation as a forced runtime switch.
 
 Persistent bot chats, including every lead, Literature Scout, and
-Chief of Tokens, stay on Claude Sonnet 5.5 **low**. Default effort is
-**low**; raise one step only after that stage fails, except tasks
-keep the effort mandated by their routing. Classify
-implementation risk before selecting a model. Prefer ChatGPT for
-implementation: GPT-6.1 Terra low first, then Grok Build medium
-(medium-only overflow), then Gemini Flash low for easy, low-risk
-tickets only; otherwise pause and ask the user. Treat
-uncertain risk conservatively. Record the risk, model, and any
-fallback reason in the job handoff. Independent review is GPT-6.1 Sol
-low first, then Grok 4.7 low (provisional if same family as the
-implementer), by a different agent and a different model family from
-the implementer where possible. Gemini and Antigravity stay off
-reviews until file reads on those routes return content. Verification
-uses GPT-6.1 Terra low or Grok Build medium, as a different agent from
-the implementer. Grok is never above medium. Sol is never above
-medium. This user preference overrides conflicting global or
-specialist role defaults.
+Chief of Tokens, use the single bot-model line in `Config/AGENTS.md`.
+Worker roles use the global role table there; TASK.md points to it.
 
-Research and planning use a short planner worker, not the persistent
-session model: GPT-6.1 Sol low first, then Grok 4.7 low, then Claude
-Opus 5.5 low only if Grok is unavailable. The planner writes
-its plan to a file and stops. Record fallback reasons and use
-connected subscriptions. Independent review remains GPT-6.1 Sol low,
-then Grok 4.7 low. Retain the user's scientific decision and
-independent-review requirements. Heavier use of the Grok subscription
+Worker models, effort limits, fallbacks and review rules come only
+from the role table and rules in `Config/AGENTS.md` (single source; user
+decision 2026-11-01). Classify implementation risk before selecting a
+model and record the risk, model and any fallback reason in the job
+handoff. Retain the user's scientific decision and independent-review requirements. Heavier use of the Grok subscription
 is allowed until 2026-11-30; it will then be downgraded. Grok stays
 never above medium.
 
@@ -169,3 +152,18 @@ your workers to the same rules.
 
 Use context efficiently: avoid rereading large files and running
 duplicate jobs, and do not poll for status.
+
+## Save step (every turn)
+
+Chat model: the single bot-model line in `Config/AGENTS.md`. After a model
+switch, send Chief of Staff a one-line confirmation naming the new model.
+
+At the end of every turn, as the last two steps: rewrite `CURRENT.md` in
+this folder (short-term memory; `MEMORY.md` stays long-term memory) with
+these headings, each with real content: Goal, Status, Decisions,
+Constraints, Artifacts, Verification, Open issues, Next action. Max
+16 KiB. Then run
+`python3 ~/Happy/Bots/chief_of_staff/tools/context_maintenance.py --bot chief_of_staff checkpoint-seal`
+and make no further edit to `CURRENT.md`. Chief of Tokens compacts this
+chat (never clears it) only when it is idle and unchanged for a 30-minute
+cycle; see `Bots/chief_of_staff/CONTEXT_MAINTENANCE.md`.

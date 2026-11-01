@@ -6,26 +6,16 @@ Create a task (`create_task`) for every code, script or policy-file change. For 
 
 ## Roles and models
 
-Model tier describes capability; effort is the reasoning dial set per call. They are independent.
+Role models come only from the role table in the global `Config/AGENTS.md` (single source; user decision 2026-11-01). Bot chats use the single bot-model line there. Before starting each role, check capacity with `codexbar usage` and record the model and any fallback reason in the checkpoint. Report unavailable capacity information as unknown.
 
-| Tier | Claude | OpenAI/Codex | Gemini/Antigravity | Grok |
-| --- | --- | --- | --- | --- |
-| high | Opus | Sol | Argon | Grok 4.7 |
-| medium | Sonnet | Terra | Flash | Grok Build (Grok 4.5 sometimes also medium) |
-| low | Haiku | Luna | Flash | Composer |
-
-Gemini has only Argon above Flash, so Flash serves both medium and low.
-
-Before starting each role, check capacity with `codexbar usage` and record the model and any fallback reason in the checkpoint. Report unavailable capacity information as unknown. The task orchestrator must be a low-tier agent; Sonnet is medium tier.
-
-| Role | Tier | Models in order | Responsibility |
-| --- | --- | --- | --- |
-| Orchestrator | low | Haiku 5.5, Luna, Gemini Flash, Composer | Task chat; maintain `.context/checkpoint.md`, about 40 lines at most. |
-| Researcher / scout | low to medium | Sonnet 5.5, Haiku 5.5 | Only when facts are missing; write `.context/research.md`. |
-| Planner | high | GPT-6.1 Sol low, Grok 4.7 low, Claude Opus 5.5 low (only if Grok is unavailable) | Put all questions in one consolidated up-front round (see Question budget in Config/AGENTS.md); resolve the rest by documented assumption. List every edit, worker and message so plan approval authorizes them. Write `.context/plan.md`, then stop. |
-| Implementer | medium | Terra, Grok Build medium, Gemini Flash | Own workspace or subtask. Flash is low effort and only for easy, low-risk tickets; otherwise pause and ask. |
-| Reviewer | high | Sol, Grok 4.7 | Fresh agent each pass; a different agent and, where possible, model family. Grok review is provisional if the implementer is also Grok. Give only the plan, diff and checks, never the implementer's transcript. |
-| Check runner | medium | Terra, Grok Build medium | Fresh agent each pass, never the implementer. |
+| Role | Global table row | Responsibility |
+| --- | --- | --- |
+| Orchestrator | Easy tasks / orchestration | Task chat; maintain `.context/checkpoint.md`, about 40 lines at most. |
+| Researcher / scout | Web search, scouting, browsing | Only when facts are missing; write `.context/research.md`. |
+| Planner | Research and planning | Put all questions in one consolidated up-front round (see Question budget in Config/AGENTS.md); resolve the rest by documented assumption. List every edit, worker and message so plan approval authorizes them. Write `.context/plan.md`, then stop. |
+| Implementer | Coding and implementation | Own workspace or subtask. |
+| Reviewer | Independent review and difficult debugging | Fresh agent each pass; a different agent and, where possible, model family. Give only the plan, diff and checks, never the implementer's transcript. |
+| Check runner | Verification | Fresh agent each pass, never the implementer. |
 
 ## Effort
 

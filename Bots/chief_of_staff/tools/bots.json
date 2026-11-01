@@ -1,0 +1,15 @@
+{
+  "chief_of_staff": {"agent_id": "fhti51x1qapqy7grqm3xoref", "checkpoint": "chief_of_staff/CURRENT.md"},
+  "literature_scout": {"agent_id": "l2v0wqznxkuxio59kgbrgss7", "checkpoint": "literature_scout/CURRENT.md"},
+  "research_software_engineer": {"agent_id": "c7jcjdr4spvqm1hmd004qeus", "checkpoint": "research_software_engineer/CURRENT.md"},
+  "reproducibility_engineer": {"agent_id": "ji7nybv1q0zpnd1umw2cehi5", "checkpoint": "reproducibility_engineer/CURRENT.md"},
+  "statistical_reviewer": {"agent_id": "yhx0xo1ar5pmj010k3cjm7ew", "checkpoint": "statistical_reviewer/CURRENT.md"},
+  "data_steward": {"agent_id": "lchx1u0x2tmj50aolsxt7q52", "checkpoint": "data_steward/CURRENT.md"},
+  "scientific_writer": {"agent_id": "s71nrbudmd61u5vw0fvge0z2", "checkpoint": "scientific_writer/CURRENT.md"},
+  "chief_of_tokens": {"agent_id": "pie0ykxpgte5qyevwi0ifbw9", "checkpoint": "chief_of_tokens/CURRENT.md"},
+  "fitness_landscape_lead": {"agent_id": "ubolafbs7gqffs7vvjye28sv", "checkpoint": "fitness_landscape_lead/CURRENT.md"},
+  "topographer_lead": {"agent_id": "vbbazmfi2gn4c9dpxl72x8bj", "checkpoint": "topographer_lead/CURRENT.md"},
+  "barseqfit_lead": {"agent_id": "agx9dwy2t63kruw849pz6z20", "checkpoint": "barseqfit_lead/CURRENT.md"},
+  "fitness_atlas_lead": {"agent_id": "euagu4ofn90cg6231eqiesnl", "checkpoint": "fitness_atlas_lead/CURRENT.md"},
+  "mathematician": {"agent_id": "i87k6jrh8p19boatcvynd3nt", "checkpoint": "mathematician/CURRENT.md"}
+}
