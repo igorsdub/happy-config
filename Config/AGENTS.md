@@ -36,6 +36,19 @@ real reviews, planning and coding run in task workers chosen from the
 table below. This line overrides the easy-tasks-only and no-Gemini-review
 limits below for bot chats only (user override).
 
+Gemini context-first rule (user-adopted 2026-11-02): when a Gemini model
+(including `antigravity/gemini-*`) answers a question or reports status,
+it answers from the context delivered in the prompt and runs no shell
+commands, searches, or database or process scans. It may read only a
+path already named in the prompt, once. If that is not enough, it says
+what is missing or, in a bot chat, escalates to a task worker. This rule
+does not replace the named-line quote after a bot switch, the
+`codexbar usage` check, or the review limits below. Exceptions, and only
+these: the named-line quote read after a bot switch, and one
+`codexbar usage` before substantial delegation. The review limits below
+still apply, except where the bot-model line above overrides them for bot
+chats only.
+
 Bot compaction (user decision 2026-11-01): Chief of Tokens runs
 `Bots/chief_of_staff/tools/context_maintenance.py maintain` every 30
 minutes. There is no token threshold. A bot is compacted (never cleared)
