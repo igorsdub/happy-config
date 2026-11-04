@@ -16,6 +16,7 @@ Role models come only from the role table in the global `Config/AGENTS.md` (sing
 | Implementer | Coding and implementation | Own workspace or subtask. |
 | Reviewer | Independent review and difficult debugging | Fresh agent each pass; a different agent and, where possible, model family. Give only the plan, diff and checks, never the implementer's transcript. |
 | Check runner | Verification | Fresh agent each pass, never the implementer. |
+| Doc Writer | Documentation (Doc Writer) | After the reviewer's PASS, update the affected README, docstrings, architecture notes, AGENTS.md, GLOSSARY.md and checkpoint. Edits docs only and reports code defects as findings. Haiku only for small edits (docstrings, checkpoint notes); README, architecture and AGENTS.md work starts on Sonnet. Uses the doc-writer skill. |
 
 ## Effort
 
@@ -67,6 +68,12 @@ Findings:
 ```
 
 P1 blocks acceptance: wrong, unsafe, or violates the spec or policy. P2 should be fixed in this ticket; the orchestrator may waive it and must list it in the final report. P3 is an optional note. Send the implementer only the findings text for fixes. A P1 or unwaived P2 starts a fix round. Allow at most two fix rounds; if P1 remains open, the planner narrows the scope once, then one more implementation and review round follows. If the narrowed version fails review, ask the user. After the cap, if only unwaived P2 findings remain, the orchestrator must waive them with reasons in the final report, narrow the scope, or escalate to the user.
+
+## Docs pass
+
+Runs after the reviewer's PASS or PASS-WITH-NITS, before the commit request. Skip it when the change alters no user- or agent-visible behavior, setup, command, interface or term, and write `docs: not needed — <reason>` in the checkpoint. A short task (single-file change) has no separate Doc Writer: the implementer updates the docs and the reviewer covers them. Each doc is one Diátaxis type (tutorial, how-to, reference or explanation).
+
+A fresh check runner verifies the docs diff: doc paths only, links and paths resolve, commands match the code. A change to policy-file meaning (AGENTS.md, TASK.md) also gets a fresh reviewer on the docs diff only. The fix-round cap is unchanged. Code defects the Doc Writer finds go back as P1/P2/P3 findings and start a fix round; the Doc Writer does not fix code.
 
 ## Authorization
 

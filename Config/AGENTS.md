@@ -80,6 +80,10 @@ start a new reviewer and check runner every pass; do not keep standing
 four-role chats. Prompt caching does not justify durable role
 transcripts across tickets.
 
+Order within a ticket: Planner → Implementer → Reviewer/Verifier → Doc Writer →
+docs check, then land. The Doc Writer edits docs only and reports code
+defects instead of fixing them.
+
 | Role | Models in order of preference |
 | --- | --- |
 | Session, coordination, chat default | Claude Sonnet 5.5 low; Grok 4.5 low; Antigravity Claude Sonnet 5.5 low; GPT-6.1 Terra low |
@@ -87,6 +91,7 @@ transcripts across tickets.
 | Coding and implementation | GPT-6.1 Terra low; Grok Build medium (medium-only overflow); Claude Sonnet 5.5 low; Antigravity Claude Sonnet 5.5 low |
 | Independent review and difficult debugging | GPT-6.1 Sol low; Grok 4.7 low (provisional if same family as implementer) |
 | Verification | GPT-6.1 Terra low; Grok Build medium; Claude Sonnet 5.5 low. Different agent from the implementer. |
+| Documentation (Doc Writer) | Claude Sonnet 5.5 low; Claude Haiku 5.5 low (small edits only); Antigravity Claude Sonnet 5.5 low |
 | Web search, scouting, browsing | Claude Sonnet 5.5 low; Claude Haiku 5.5 low; GPT Luna low |
 | Easy tasks / orchestration | Claude Haiku 5.5 low; Grok Composer 2.5 (off); Gemini Flash (current version) low; Antigravity Gemini Flash low |
 
