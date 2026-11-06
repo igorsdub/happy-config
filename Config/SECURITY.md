@@ -21,3 +21,13 @@ After any persistent bot model switch, each bot must quote a requested line
 of a known file before performing review work. Report probe failures; do not
 work around them. Persistent bots delegate substantive review, planning and
 coding to task helpers.
+
+# Trusted GitHub Organizations & Remote Destinations
+
+The following external remotes and organizations are trusted for repository
+synchronization, fetching, push operations (subject to user confirmation),
+and API interactions:
+- `github.com/oist`
+- `github.com/igorsdub`
+- `github.com/oist/git-tic-tac-toe`
+- `github.com/igorsdub/git-tic-tac-toe-workshop`
