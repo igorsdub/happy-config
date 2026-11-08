@@ -87,3 +87,8 @@
 !/Bots/fitness_atlas_lead/SOUL.md
 !/Bots/fitness_atlas_lead/MEMORY.md
 !/Bots/fitness_atlas_lead/CURRENT.md
+!/Bots/dreamer/
+/Bots/dreamer/*
+!/Bots/dreamer/AGENTS.md
+!/Bots/dreamer/SOUL.md
+!/Bots/dreamer/CURRENT.md
