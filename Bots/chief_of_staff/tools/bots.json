@@ -11,5 +11,6 @@
   "topographer_lead": {"agent_id": "vbbazmfi2gn4c9dpxl72x8bj", "checkpoint": "topographer_lead/CURRENT.md"},
   "barseqfit_lead": {"agent_id": "agx9dwy2t63kruw849pz6z20", "checkpoint": "barseqfit_lead/CURRENT.md"},
   "fitness_atlas_lead": {"agent_id": "euagu4ofn90cg6231eqiesnl", "checkpoint": "fitness_atlas_lead/CURRENT.md"},
-  "mathematician": {"agent_id": "i87k6jrh8p19boatcvynd3nt", "checkpoint": "mathematician/CURRENT.md"}
+  "mathematician": {"agent_id": "i87k6jrh8p19boatcvynd3nt", "checkpoint": "mathematician/CURRENT.md"},
+  "dreamer": {"agent_id": "t5rlnd9zi44ta7t1jkj9hm1c", "checkpoint": "dreamer/CURRENT.md"}
 }
