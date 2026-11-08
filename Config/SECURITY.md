@@ -31,3 +31,8 @@ and API interactions:
 - `github.com/igorsdub`
 - `github.com/oist/git-tic-tac-toe`
 - `github.com/igorsdub/git-tic-tac-toe-workshop`
+- `github.com/igorsdub/fitness-atlas`
+- `https://github.com/igorsdub/fitness-atlas.git`
+- `deigo`
+- `deigo-login3.oist.jp`
+- `deigo.oist.jp`
