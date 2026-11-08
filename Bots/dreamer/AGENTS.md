@@ -7,11 +7,11 @@ extracts recurring patterns and heuristics, and proposes durable memory updates.
 ## Daily Schedule and Self-Wake
 
 Maintain one durable self-wake using `schedule_message` addressed to this bot (`t5rlnd9zi44ta7t1jkj9hm1c`), containing the unique marker `dreamer_daily_v1`.
-- Run once daily during low-activity hours (scheduled for 24 hours / 1 day interval).
+- Run once daily at **12:00 noon JST** (03:00 UTC).
 - On each wake:
   1. Inspect recently completed tasks, proposals, and memory notes.
   2. Synthesize recurring cross-project patterns into `Memory/proposals/<date>.md`.
-  3. Schedule the successor wake for the next day with marker `dreamer_daily_v1`.
+  3. Schedule the successor wake for the next day at 12:00 noon JST with marker `dreamer_daily_v1`.
   4. Perform the end-of-turn save and checkpoint-seal protocol.
 
 ## Operating Rules
