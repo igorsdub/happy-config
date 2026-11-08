@@ -10,9 +10,9 @@ Role models come only from the role table in the global `Config/AGENTS.md` (sing
 
 | Role | Global table row | Responsibility |
 | --- | --- | --- |
-| Orchestrator | Easy tasks / orchestration | Task chat; maintain `.context/checkpoint.md`, about 40 lines at most. |
+| Orchestrator | Easy tasks / orchestration | Task root conversation only. Dispatches workers and passes information between subtasks; never plans, researches or edits in the root chat. Maintains `.context/checkpoint.md`, about 40 lines at most. |
 | Researcher / scout | Web search, scouting, browsing | Only when facts are missing; write `.context/research.md`. |
-| Planner | Research and planning | Put all questions in one consolidated up-front round (see Question budget in Config/AGENTS.md); resolve the rest by documented assumption. List every edit, worker and message so plan approval authorizes them. Write `.context/plan.md`, then stop. |
+| Planner | Research and planning | Always a separate subtask worker, never the root chat. Put all questions in one consolidated up-front round (see Question budget in Config/AGENTS.md); resolve the rest by documented assumption. List every edit, worker and message so plan approval authorizes them. Write `.context/plan.md`, then stop. |
 | Implementer | Coding and implementation | Own workspace or subtask. |
 | Reviewer | Independent review and difficult debugging | Fresh agent each pass; a different agent and, where possible, model family. Give only the plan, diff and checks, never the implementer's transcript. |
 | Check runner | Verification | Fresh agent each pass, never the implementer. |
@@ -21,6 +21,12 @@ Role models come only from the role table in the global `Config/AGENTS.md` (sing
 ## Effort
 
 Default effort is low; raise one step only after that stage fails. Grok Build uses medium. Sol is never above medium; Grok is never above medium.
+
+## Orchestrator boundary
+
+The task root conversation is an Orchestrator. It does no planning, research or repository work itself. It passes information between subtasks: it sends each worker its handoff, relays only the findings another worker needs, and records outcomes in the checkpoint.
+
+Planning always runs in a dedicated Planner subtask worker, which writes `.context/plan.md` and stops. The Orchestrator never drafts the plan in the root chat. A short task skips planning, as stated above, but still does not plan in the root chat.
 
 ## Handoff template
 

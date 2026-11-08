@@ -80,6 +80,11 @@ start a new reviewer and check runner every pass; do not keep standing
 four-role chats. Prompt caching does not justify durable role
 transcripts across tickets.
 
+Task root boundary: the root conversation of a task is an Orchestrator
+only. It dispatches workers and passes information between subtasks, and
+does no planning or research itself. Planning always runs in a dedicated
+Planner subtask worker that writes `.context/plan.md` and stops.
+
 Order within a ticket: Planner → Implementer → Reviewer/Verifier → Doc Writer →
 docs check, then land. The Doc Writer edits docs only and reports code
 defects instead of fixing them.
