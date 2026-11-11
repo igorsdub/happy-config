@@ -92,3 +92,8 @@
 !/Bots/dreamer/AGENTS.md
 !/Bots/dreamer/SOUL.md
 !/Bots/dreamer/CURRENT.md
+!/Tasks/
+/Tasks/*
+!/Tasks/fix_agy_auth_prompt/
+/Tasks/fix_agy_auth_prompt/*
+!/Tasks/fix_agy_auth_prompt/tools/
