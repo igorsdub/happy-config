@@ -24,15 +24,12 @@ coding to task helpers.
 
 # Trusted GitHub Organizations & Remote Destinations
 
-The following external remotes and organizations are trusted for repository
-synchronization, fetching, push operations (subject to user confirmation),
-and API interactions:
-- `github.com/oist`
-- `github.com/igorsdub`
-- `github.com/oist/git-tic-tac-toe`
-- `github.com/igorsdub/git-tic-tac-toe-workshop`
-- `github.com/igorsdub/fitness-atlas`
-- `https://github.com/igorsdub/fitness-atlas.git`
-- `deigo`
-- `deigo-login3.oist.jp`
-- `deigo.oist.jp`
+User decision 2026-11-12: Happy-managed project remotes use **`github.com/igorsdub` only**.
+Do not fetch, push, open PRs, or treat `github.com/oist` as an active project remote.
+Historical oist URLs in old notes may remain as provenance; new work must use igorsdub.
+
+The following external remotes, organizations, and clusters are trusted for repository
+synchronization, fetching, push operations, branch creation, PR management, and
+API interactions without requiring per-step manual user approval:
+- `github.com/igorsdub` (e.g. `https://github.com/igorsdub/topographer.git`, `https://github.com/igorsdub/barseqfit.git`, `https://github.com/igorsdub/dubanevics2026topological.git`, `https://github.com/igorsdub/fitness-atlas.git`, `https://github.com/igorsdub/gecs.git`, `https://github.com/igorsdub/git-tic-tac-toe.git`, `https://github.com/igorsdub/git-tic-tac-toe-workshop.git`, `https://github.com/igorsdub/happy-config.git`)
+- `deigo` / `deigo.oist.jp` / `deigo-login3.oist.jp` (Slurm compute hosts only; not a GitHub org remote)
