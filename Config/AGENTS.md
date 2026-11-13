@@ -146,16 +146,28 @@ Auto-mode reviews and staged edits inside the approved scope are not asked
 about. A plan lists the global-configuration edits it makes, so the "ask
 before global configuration changes" rule is met by plan approval.
 
+Waiting rule (user-adopted 2026-11-13): never wait with the shell. Do not
+run `sleep`, sleep loops (`while ...; do sleep ...; done`), `watch`,
+`timeout`-wrapped polling, `until` loops, or repeated status commands in
+Bash to pass time or wait for a job, worker, file, or reset. Waiting is
+done only with Happy tools: `wait` for a short in-turn pause,
+`wait_until` for a specific time, or `schedule_message` for a durable
+wake-up (then end the turn). A brief retry built into a single command
+(such as a tool's own `--retry` flag) is allowed; a loop written to wait
+is not.
+
 Cluster job submission and polling budget (user-adopted 2026-11-09): when an
 agent or worker submits a batch or cluster job (such as a Slurm `sbatch` job,
 array, or long-running compute pipeline), it must NOT poll for status in tight
 or frequent intervals (no checks every minute or every 10 minutes), as frequent
 checks exhaust LLM tokens and API quotas rapidly. Instead, the agent must
-estimate the expected job duration $T$ (e.g. 40 minutes) and sleep or yield until
-that estimated time has elapsed before performing its first status check. It is
-entirely acceptable if the job completes earlier and is checked later. If the
-job remains unfinished when checked at time $T$, estimate the remaining duration
-and wait accordingly before checking again, avoiding high-frequency status loops.
+estimate the expected job duration $T$ (e.g. 40 minutes) and, following the
+waiting rule above, use `wait_until` or `schedule_message` for time $T$ (or
+end the turn and rely on completion notification) before performing its first
+status check. It is entirely acceptable if the job completes earlier and is
+checked later. If the job remains unfinished when checked at time $T$,
+estimate the remaining duration and schedule the next check the same way,
+avoiding high-frequency status loops.
 
 The live macOS Happy folder at `~/Happy` is a local Git repository
 named `happy-config`. Edit its instruction files in place. Its
