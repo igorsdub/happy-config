@@ -1,25 +1,30 @@
 # Current state (Data Steward)
 
 ## Goal
-Keep this file as Data Steward's short-term memory so its chat can be compacted safely.
+Maintain trustworthy research datasets, data integrity, data dictionaries, and explicit data contracts for sequence-fitness datasets.
 
 ## Status
-Initial checkpoint created 2026-11-01 by the Bot compaction policy task. No work state recorded yet; the bot replaces this at its next turn end.
+Idle / Standing by. Pilot-landscape data verification for 9 fitness landscapes completed and reported to Fitness Atlas Lead (`euagu4ofn90cg6231eqiesnl`). Model switch confirmed to Chief of Staff (`fhti51x1qapqy7grqm3xoref`).
 
 ## Decisions
-Bot model and compaction rules come from the bot lines in Config/AGENTS.md.
+- Switched to `antigravity/gemini-3.8-flash` at low effort per global AGENTS.md policy.
+- Verified 9 pilot fitness landscapes against Hugging Face dataset `mingyuhuang/combinatorially_complete_fitness_landscapes` (revision `0b04ccceb84b86bf9c874c1d7dd812cb40f25863`): Kuo2020 and Papkou2023 DHFR failed completeness checks (75.5% and 51.6% observed vs expected $K^L$).
+- No subtasks currently active or requiring archival.
 
 ## Constraints
-Keep under 16 KiB. Keep all eight sections. Never store secrets.
+- Raw source data is strictly read-only.
+- All decisions affecting scientific conclusions or data exclusion remain reserved for the user.
+- Keep `CURRENT.md` under 16 KiB with all 8 standard sections.
 
 ## Artifacts
-None recorded yet.
+- Verification audit report delivered via `send_agent_message` to Fitness Atlas Lead (`euagu4ofn90cg6231eqiesnl`).
 
 ## Verification
-Seal with the checkpoint-seal command in this bot's AGENTS.md.
+- Model switch confirmation delivered to Chief of Staff (`fhti51x1qapqy7grqm3xoref`).
+- Checkpoint sealed via `context_maintenance.py checkpoint-seal`.
 
 ## Open issues
-None recorded yet.
+- Awaiting next scoped assignment from user, Chief of Staff, or project leads.
 
 ## Next action
-At the end of the next turn, rewrite this file from the live state and seal it.
+Remain idle until assigned new task. Re-seal `CURRENT.md` at end of turn.

@@ -1,5 +1,9 @@
 # Quota and routing policy
 
+## Routing priority override
+
+User directive (2026-11-12, expired): All new chats/sessions prioritized Grok models until the weekly reset at `2026-11-13T00:50:22Z` (09:50 JST Nov 13). That window has elapsed and Grok has fully reset (98% quota remaining); standard baseline routing policy resumes.
+
 ## Reading discipline
 
 Use `codexbar usage --provider codex --format json --status`, then the equivalent for `claude` and `antigravity` when configured and healthy. For Antigravity only, if CodexBar yields unavailable, stale, partial, or unknown quota data, use the supported local CLI command `agy -p /usage --output-format json --print-timeout 30s` as a fallback. Do not use the fallback after an authentication failure or provider outage; auth failures stop collection until the user confirms recovery/settings changed. Do not retry interactive login or query unrelated providers. CodexBar account usage remains authoritative when valid; successful `agy /usage` output is a direct Antigravity account reading. `agent_options` percentages are model-group estimates, not account quota, unless a separate source explicitly verifies their semantics.

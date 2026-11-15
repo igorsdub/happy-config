@@ -4,28 +4,29 @@
 Offline memory consolidation across completed tasks and bot sessions.
 
 ## Status
-- 2026-11-09 proposal approved by the user and applied.
-- Live `MEMORY.md` updated for Fitness Atlas Lead and Fitness Landscape Lead.
-- `AGENTS.md` and policy files not touched.
+- Daily wake 2026-11-14 (12:00 noon JST) executed.
+- Inspected updated checkpoints (`chief_of_staff`, `fitness_landscape_lead`, `chief_of_tokens`); `barseqfit_lead`, `topographer_lead`, and `fitness_atlas_lead` remain paused.
+- Synthesized status into `Memory/proposals/2026-11-14.md` (no new durable `MEMORY.md` additions; carried forward pending `fitness_atlas_lead` proposal).
+- No live `MEMORY.md` or policy files edited.
 
 ## Decisions
-- Proposal-only until the user approves. This pass was approved.
-- Quota, wake ids, Slurm ids, and the own-chat approval rule were not copied.
+- Maintained durable self-wake at 12:00 JST daily with marker `dreamer_daily_v1`.
 
 ## Constraints
 - Max 16 KiB.
-- Never edit live memory or policy unless the user approves that write.
+- Propose, never overwrite live memory without approval.
+- One daily self-wake at 12:00 JST, marker `dreamer_daily_v1`.
 
 ## Artifacts
-- `Memory/proposals/2026-11-09-consolidation.md` (marked applied)
-- Writes: `fitness_atlas_lead/MEMORY.md`, `fitness_landscape_lead/MEMORY.md`
+- `Memory/proposals/2026-11-13.md`
+- `Memory/proposals/2026-11-14.md` (new proposal)
 
 ## Verification
-- Both ADD bullets from the approved proposal are in those files.
+- Successor wake scheduled: `w9gv0u1ri70nuv0foghp3lnh` due 2026-11-15 12:00 JST (03:00 UTC).
+- CURRENT.md updated and sealed.
 
 ## Open issues
-- Scientific numbers and paths are still checkpoint quotes.
-- Dreamer is not in the checkpoint-seal bot registry, so the official seal command fails.
+- Awaiting user approval on pending `fitness_atlas_lead` proposal (`Memory/proposals/2026-11-14.md`).
 
 ## Next action
-Idle until the next consolidation.
+Wait for scheduled daily wake on 2026-11-15 at 12:00 JST (03:00 UTC).

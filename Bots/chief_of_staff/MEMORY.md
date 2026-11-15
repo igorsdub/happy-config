@@ -48,5 +48,22 @@ Check current instructions, live state, and evidence before acting.
   not justify durable role transcripts across tickets (see
   Tasks/bot_role_grilling/recommendation.md).
 
+- Dreamer pass 2026-11-06, user-approved: a merge or other reviewed side effect
+  counts only when the approval is in the executing agent's own chat. Relaying
+  "the user said yes" from another bot is not enough (Topographer PR #152).
+- Dreamer pass 2026-11-06, user-approved: `CURRENT.md` is a checkpoint, not a
+  log. When it grows into a multi-day diary, move the diary to
+  `memory/YYYY-MM-DD-*.md` and leave the eight headings.
+
+- User decision 2026-11-12: Happy-managed project remotes are `github.com/igorsdub`
+  only. Do not use `github.com/oist` as origin/upstream for project work. Remotes
+  for topographer, barseqfit, gecs, and git-tic-tac-toe (including Happy
+  workspaces) were retargeted. Deigo hostnames remain for Slurm compute.
+  In-repo package metadata may still mention old oist URLs until updated.
+- User override 2026-11-12: Fitness Landscape Lead concurrent-worker cap raised
+  from 2 to **4** (Tables/TOML may run beside Restructure T7 and Peak #224).
+  Reverts only on later user/Chief order. Default elsewhere remains ≤2 unless
+  overridden.
+
 Model routing, permission rules, and temporary preferences remain authoritative
 in the current global and local AGENTS.md files, not in this recalled summary.

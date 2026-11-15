@@ -1,25 +1,29 @@
 # Current state (Scientific Writer)
 
 ## Goal
-Keep this file as Scientific Writer's short-term memory so its chat can be compacted safely.
+Await scoped scientific drafting or review assignments from the user or Chief of Staff (`fhti51x1qapqy7grqm3xoref`), maintaining bot short-term memory and context hygiene.
 
 ## Status
-Initial checkpoint created 2026-11-01 by the Bot compaction policy task. No work state recorded yet; the bot replaces this at its next turn end.
+Idle. Role setup is complete with `AGENTS.md` and `INTAKE.md` verified. Model switch to `antigravity/gemini-3.8-flash` confirmed to Chief of Staff.
 
 ## Decisions
-Bot model and compaction rules come from the bot lines in Config/AGENTS.md.
+- Model is `antigravity/gemini-3.8-flash` at low effort following the persistent bot model policy.
+- Bot remains idle without discovering local projects until an explicit project and workspace assignment is received.
 
 ## Constraints
-Keep under 16 KiB. Keep all eight sections. Never store secrets.
+- Max 16 KiB size limit. Keep all eight required headings.
+- Never store secrets. Preserve claim-evidence traceability and uncertainty intervals.
 
 ## Artifacts
-None recorded yet.
+- `/Users/igorsdubanevics/Happy/Bots/scientific_writer/AGENTS.md`
+- `/Users/igorsdubanevics/Happy/Bots/scientific_writer/INTAKE.md`
 
 ## Verification
-Seal with the checkpoint-seal command in this bot's AGENTS.md.
+- MCP `send_agent_message` confirmation delivered to Chief of Staff (`fhti51x1qapqy7grqm3xoref`).
+- Seal via `context_maintenance.py --bot scientific_writer checkpoint-seal`.
 
 ## Open issues
-None recorded yet.
+None. Awaiting task assignment.
 
 ## Next action
-At the end of the next turn, rewrite this file from the live state and seal it.
+Remain idle awaiting scoped assignments from the user or coordinator.

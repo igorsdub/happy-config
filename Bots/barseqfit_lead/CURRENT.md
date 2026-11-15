@@ -1,28 +1,34 @@
 # Current checkpoint
 
-Updated: 2026-10-30 (JST). Active; **no workers** on threshold port.
+Updated: 2026-11-12 17:25 JST. HARD PAUSE (user via CoS).
 
 ## Goal
-Serve Fitness Landscape Lead; maintain barseqfit. Threshold gates for paper #167 done pending user merge/pin.
+Serve Fitness Landscape Lead; maintain `barseqfit`. Coordinate when released.
 
 ## Status
-**PR #19** https://github.com/oist/barseqfit/pull/19 head `9ac72a0` → `integration/functional-threshold-main`. **Not merged.**
-- Sol-low review: PASS (encoding/scope). Review subtask archived.
-- Fresh gate at head with canonical Export: PASS (A/B; C report-only). Asked RSE to archive implementer `zkaaoeb3r9f5yqhkczfg1u2p` (not my direct subtask).
-- Completion sent to Align-PRD `qmvq12bw5s2cxij50gxy78wd`, FLL `ubolafbs7gqffs7vvjye28sv`, CoS `fhti51x1qapqy7grqm3xoref`.
-- Production pin remains `bd5d722`.
+- **HARD PAUSE**: CoS relayed user order — stop all work; idle until released.
+  - Roadmap task `ttdpmp769bdzubku57ibyvaa` told to stop everything.
+- **MODEL**: `xai/grok-4.5` (provider grok).
+- **REMOTE**: `https://github.com/igorsdub/barseqfit.git` only; URL cleanup `544308bd` already merged.
+- **Held (no progress)**: v2.3 leakage FAIL; pair parity TIMEOUT; BarBay DimensionMismatch.
+- Board: [BarSeqFit — project board](happy://surfaces/p5n19kwdw39xtcaa9uhb0yeh)
 
-### Gate numbers (fresh run)
-- A: −0.5077739708744209 (display −0.507774), 18029
-- B: Py −0.5072757394941017 / 18013 vs R −0.507313425918757 / 18014
-- C: Py −0.5460668174497675 / 20097 vs R −0.439587249165754 / 16165 (diagnostic)
+## Decisions
+- Idle until CoS/user releases the pause.
 
-## Still open
-- User: merge PR #19? later pin change?
-- PR #18 renv cleanup: ignoring `validation/` leaves threshold-branch R dependencies unlocked; still awaiting Sol-low review (CoS); subtask `qspcqkr8ubjhozp0pp2yr3l1` kept.
+## Constraints
+- No new work of any kind until released.
+- igorsdub only when work resumes.
 
-## Capacity
-Claude Sonnet 5.5 low sessions. Terra / Sol low while Codex available. Times in JST only.
+## Artifacts
+- Task: [BarSeqFit Roadmap Implementation](happy://agents/u7sukgzs2eifje5dux82n6t4)
+- Board: [BarSeqFit — project board](happy://surfaces/p5n19kwdw39xtcaa9uhb0yeh)
+
+## Verification
+- Hard-pause relayed to roadmap task.
+
+## Open issues
+- Await release; then scientific call on leakage FAIL.
 
 ## Next action
-Idle on threshold until user merge/pin decision. Do not merge. Keep PR #18 path as CoS arranged.
+Idle.
