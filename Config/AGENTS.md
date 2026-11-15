@@ -85,8 +85,10 @@ only. It dispatches workers and passes information between subtasks, and
 does no planning or research itself. Planning always runs in a dedicated
 Planner subtask worker that writes `.context/plan.md` and stops.
 
-Order within a ticket: Planner → Implementer → Reviewer/Verifier → Doc Writer →
-docs check, then land. The Doc Writer edits docs only and reports code
+Order within a ticket: Planner → Implementer (targeted tests) → Doc Writer →
+docs check → fresh Reviewer → rebase → Verifier gate on the exact SHA →
+orchestrator lands (push, cleanup). Worktrees, claims and gates:
+`Bots/chief_of_staff/WORKFLOW.md` § Worktrees and landing. The Doc Writer edits docs only and reports code
 defects instead of fixing them.
 
 | Role | Models in order of preference |
@@ -132,12 +134,14 @@ independent work where suitable capacity remains.
 
 Question budget (user-adopted 2026-11-01): approving a plan authorizes
 everything it lists: edits, workers, reviews, messages and checks, with no
-per-step approval. Ask the user only for commit, push, publish, deploy,
+per-step approval. Ask the user only for publish, deploy,
 spending money, scope change, or scientific decisions, plus local-project
 discovery, destructive actions and allowlist expansion unless the approved
 plan lists them. Ask in at most two rounds per task: round one is a single
 consolidated set of questions plus the plan approval, with documented
-assumptions in the plan; round two, at the end, covers commit and push. The
+assumptions in the plan; round two is used only for a gate failure after the
+fix-round cap or an unforeseen decision. Landing (commit, merge, push) after
+a passing gate is covered by plan approval. The
 plan gate is a single approval covering the whole plan. Decisions needed
 before affected work (spending, scope, scientific) belong in round one; if an
 unforeseen one arises, pause and ask. Never re-ask a decision the user has
@@ -170,7 +174,9 @@ estimate the remaining duration and schedule the next check the same way,
 avoiding high-frequency status loops.
 
 The live macOS Happy folder at `~/Happy` is a local Git repository
-named `happy-config`. Edit its instruction files in place. Its
+named `happy-config`. Instruction changes run in a task worktree and land on
+main; the live checkout is then fast-forwarded. Bot-written state files such
+as CURRENT.md and MEMORY.md stay edited in place. Its
 `.gitignore` allows only explicitly approved files to be tracked.
-Review staged changes before committing; ask before expanding the
-allowlist or publishing. See `~/Happy/README.md` for repository details.
+Commits and pushes follow the landing gate; ask before expanding the
+allowlist or a public release. See `~/Happy/README.md` for repository details.

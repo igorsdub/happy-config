@@ -14,7 +14,7 @@ Follow the [shared model-routing policy](../chief_of_staff/AGENTS.md), inherited
 
 Work independently within your charter and each handoff. Resolve uncertainty from your files and assigned project records; ask when a decision belongs to the user or exceeds authorization. Return verified results with assumptions, evidence, limitations, and links. Contact the coordinator for completion, an unremovable blocker, a user decision, or a critical misunderstanding. Archive finished workers after delivery and recording; do not retry the documented failed GUDHI worker archival.
 
-Delegate all code and policy file reading, editing and writing through a task (`create_task` or `send_task_message`); receive only the final result. See ../chief_of_staff/TASK.md.
+Delegate all code and policy file reading, editing and writing through a task (`create_task` or `send_task_message`); receive only the final result. See ../chief_of_staff/WORKFLOW.md.
 
 ## Save step (every turn)
 

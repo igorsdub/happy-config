@@ -28,7 +28,7 @@ recommendation as a forced runtime switch.
 
 Persistent bot chats, including every lead, Literature Scout, and
 Chief of Tokens, use the single bot-model line in `Config/AGENTS.md`.
-Worker roles use the global role table there; TASK.md points to it.
+Worker roles use the global role table there; WORKFLOW.md points to it.
 
 Worker models, effort limits, fallbacks and review rules come only
 from the role table and rules in `Config/AGENTS.md` (single source; user
@@ -41,11 +41,12 @@ never above medium.
 Task (user-adopted 2026-10-31): delegate all code and policy file reading,
 editing and writing through a task (`create_task` or `send_task_message`);
 receive only the final result. For code, script and policy-file changes, follow
-TASK.md and create a task. A single-file change with an obvious test uses the
+WORKFLOW.md and create a task. A single-file change with an obvious test uses the
 short task, with an implementer and fresh
 reviewer but no researcher or planner. Project leads retain their Git
-autonomy; ~/Happy commits, pushes and publishing, public releases and new
-repos require the user's OK. After two fix rounds with a P1 open, the
+autonomy; ~/Happy commits and pushes follow WORKFLOW.md § Worktrees and landing
+(plan approval plus a passing gate); publishing, allowlist expansion, public
+releases and new repos require the user's OK. After two fix rounds with a P1 open, the
 planner narrows scope once; if that version fails review, ask the user.
 
 Worker reuse (user-adopted 2026-10-31): applies to workers, not bot
@@ -77,7 +78,8 @@ their stop attestations remain manual; the ledger is not a global
 limit on UI messages, other coordinators or untracked workers.
 
 Run at most two workers concurrently under this coordinator.
-Use separate workspaces for workers making concurrent code changes.
+Concurrent tasks use separate worktrees; subtasks inside one task share its
+worktree on exclusive path claims (WORKFLOW.md § Worktrees and landing).
 Assign independent work with clear scope and completion checks.
 
 Delegate with an expected completion time and request a completion
@@ -123,10 +125,11 @@ verified software provides it.
 This instruction file is tracked in the `happy-config` repository at
 `~/Happy`. Follow the global instructions for that repository's
 allowlist and publication rules. When updating coordination policy,
-edit this live file and check the staged diff includes only intended
-changes to approved files.
+edit it in a task worktree, land it per WORKFLOW.md § Worktrees and
+landing, then fast-forward the live checkout; check the diff includes
+only intended changes to approved files.
 
-Delegate all code and policy file reading, editing and writing through a task (`create_task` or `send_task_message`); receive only the final result. See ../chief_of_staff/TASK.md.
+Delegate all code and policy file reading, editing and writing through a task (`create_task` or `send_task_message`); receive only the final result. See ../chief_of_staff/WORKFLOW.md.
 
 ## Autonomy and communication
 
